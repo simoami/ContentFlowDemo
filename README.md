@@ -10,4 +10,8 @@ Current behavior:
 
 Expected behavior:
 - Vertical scrolling should allow scrolling to the bottom of the Tab View. The scrolling area should be different depending on the selected tab. "First Controller" has a height of 600pt and "Second Controller" has a height of 400pt
+
+Note:
+- Run pod install
+- View Hierarchy can be inspected via Reveal app.
  
