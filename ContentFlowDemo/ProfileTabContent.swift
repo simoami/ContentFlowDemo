@@ -22,34 +22,13 @@ class ProfileTabs: ASDisplayNode {
         pagingMenuController = PagingMenuController(options: options)
         
         // ASDK node view block wrapper for pagingMenuController view
-        tabBarNode = TabContentViewNode(view: self.pagingMenuController!.view)
+        tabBarNode = ASDisplayNode(viewBlock: { () -> UIView in
+            return self.pagingMenuController!.view
+        })
         addSubnode(tabBarNode!)
-        
-    }
-
-//    override func calculateSizeThatFits(constrainedSize: CGSize) -> CGSize {
-//        return CGSize(width: frame.width, height: 400)
-//    }
-    
-}
-
-
-// MARK: - ASDK Node wrapper
-
-class TabContentViewNode: ASDisplayNode {
-    
-    init(view: UIView) {
-        super.init(viewBlock: { view }, didLoadBlock: nil)
-    }
-    
-    override func layout() {
-        super.layout()
-        let size = layoutThatFits(ASSizeRangeMake(CGSizeZero, CGSize(width: self.view.bounds.width, height: CGFloat.max))).size
-        var targetFrame = self.frame;
-        targetFrame.size.height = size.height;
-        self.frame = targetFrame;
     }
 }
+
 
 // MARK: - Pagin Menu options
 
